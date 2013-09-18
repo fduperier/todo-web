@@ -4,6 +4,7 @@ var todoApp = angular.module('todoApp', ['todoApp.controllers', 'todoApp.service
 
 todoApp.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.when('/tasks',          { templateUrl: 'app/views/tasks/index.html', controller: 'TasksController' });
+  $routeProvider.when('/tasks/new',      { templateUrl: 'app/views/tasks/new.html',   controller: 'TasksController' });
   $routeProvider.when('/tasks/:id',      { templateUrl: 'app/views/tasks/show.html',  controller: 'TasksController' });
   $routeProvider.when('/tasks/:id/edit', { templateUrl: 'app/views/tasks/edit.html',  controller: 'TasksController' });
 

@@ -1,6 +1,7 @@
 todoAppContollers.controller('TasksController', function ($scope, $location, $routeParams, TasksService) {
 
   $scope.tasks = [];
+  $scope.newTask = {};
   $scope.currentTask = {};
   $scope.updateTask = {};
 
@@ -13,6 +14,10 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
         console.log(response);
       }
     );
+  };
+
+  $scope.new = function() {
+	  $scope.newTask = { 'task': '' };
   };
 
   $scope.show = function() {
@@ -65,6 +70,10 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
    */
   $scope.goToIndex = function() {
     $location.path('/tasks');
+  };
+
+  $scope.goToNew = function() {
+    $location.path('/tasks/new');
   };
 
   $scope.goToShow = function(t_id) {
