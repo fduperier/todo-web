@@ -1,0 +1,20 @@
+<div ng-controller='TasksController' ng-init='show()'>
+  <h1>Showing task</h1>
+
+  <p>
+    <strong>Title:</strong>
+    {{currentTask.title}}
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    {{currentTask.description}}
+  </p>
+
+  <p>
+    <strong>Done:</strong>
+    {{currentTask.done}}
+  </p>
+
+  <a href='' ng-click='goToIndex()'>Back to list</a>
+</div>
