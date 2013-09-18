@@ -49,6 +49,17 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
     );
   };
 
+  $scope.destroy = function(t_id) {
+    TasksService.delete({ task_id: t_id },
+      function(resource) {
+        $('#task_' + t_id).closest('tr').fadeOut();  
+      },
+      function (response) {
+        console.log(response);
+      }
+    );
+  };
+
   /**
    * GoTo Functions
    */
