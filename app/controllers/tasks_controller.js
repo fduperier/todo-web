@@ -16,10 +16,6 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
     );
   };
 
-  $scope.new = function() {
-	  $scope.newTask = { 'task': '' };
-  };
-
   $scope.show = function() {
     TasksService.get({ task_id: $routeParams.id },
       function(resource) {
@@ -27,6 +23,21 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
       },
       function(response) {
         console.log(response);
+      }
+    );
+  };
+
+  $scope.new = function() {
+    $scope.newTask = { 'task': '' };
+  };
+
+  $scope.create = function(newTask) {
+    TasksService.save({}, newTask,
+      function(resource) {
+        $location.path('/tasks/' + resource.id);
+      },
+      function(response) {
+        $location.path('/tasks/new');
       }
     );
   };
