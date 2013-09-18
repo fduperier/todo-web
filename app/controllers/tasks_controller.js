@@ -2,6 +2,7 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
 
   $scope.tasks = [];
   $scope.currentTask = {};
+  $scope.updateTask = {};
 
   $scope.index = function() {
     TasksService.query(
@@ -29,8 +30,21 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
     TasksService.get({ task_id: $routeParams.id },
       function(resource) {
         $scope.currentTask = resource;
-      }, function(response) {
+        $scope.updateTask = { 'task': resource };
+      },
+      function(response) {
         console.log(response);
+      }
+    );
+  };
+
+  $scope.update = function(t_id, updateTask) {
+    TasksService.update({ task_id: t_id }, updateTask,
+      function(resource) {
+        $location.path('/tasks/' + t_id);
+      },
+      function(response) {
+        $location.path('/tasks/' + t_id + '/edit');
       }
     );
   };
