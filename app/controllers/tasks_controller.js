@@ -25,6 +25,16 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
     );
   };
 
+  $scope.edit = function() {
+    TasksService.get({ task_id: $routeParams.id },
+      function(resource) {
+        $scope.currentTask = resource;
+      }, function(response) {
+        console.log(response);
+      }
+    );
+  };
+
   /**
    * GoTo Functions
    */
@@ -34,5 +44,9 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
 
   $scope.goToShow = function(t_id) {
     $location.path('/tasks/' + t_id);
+  };
+
+  $scope.goToEdit = function(t_id) {
+    $location.path('/tasks/' + t_id + '/edit');
   };
 });
