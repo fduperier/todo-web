@@ -1,0 +1,27 @@
+<div ng-controller='TasksController' ng-init='index()'>
+  <h1>Listing tasks</h1>
+
+  <div ng-hide='tasks'>No tasks</div>
+
+  <table class="table table-striped" ng-show='tasks'>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Done</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+      <tr ng-repeat='task in tasks' id='task_{{task.id}}'>
+        <td>{{task.id}}</td>
+        <td>{{task.title}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.done}}</td>
+        <td><a href=''>Show</a></td>
+        <td><a href=''>Edit</a></td>
+        <td><a href=''>Delete</a></td>
+      </tr>
+  </table>
+
+</div>
