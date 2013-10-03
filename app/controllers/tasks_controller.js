@@ -75,23 +75,4 @@ todoAppContollers.controller('TasksController', function ($scope, $location, $ro
       }
     );
   };
-
-  /**
-   * GoTo Functions
-   */
-  $scope.goToIndex = function() {
-    $location.path('/tasks');
-  };
-
-  $scope.goToNew = function() {
-    $location.path('/tasks/new');
-  };
-
-  $scope.goToShow = function(t_id) {
-    $location.path('/tasks/' + t_id);
-  };
-
-  $scope.goToEdit = function(t_id) {
-    $location.path('/tasks/' + t_id + '/edit');
-  };
 });
